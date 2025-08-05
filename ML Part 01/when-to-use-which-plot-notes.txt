@@ -1,0 +1,68 @@
+When to use which plot during our EDA
+process: 
+
+1. Correlation
+Goal: See relationships between numeric variables.
+
+Plot:
+
+Heatmap → sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+
+Use when you have many numeric columns and want a quick overview.
+
+2. Distribution of a single numeric variable
+Goal: Understand shape (normal, skewed, etc.).
+
+Plot:
+
+Histogram → sns.histplot(df['col'], kde=True)
+
+KDE Plot → sns.kdeplot(df['col']) (smooth density curve)
+
+Use for continuous variables like age, salary.
+
+3. Relationship between two numeric variables
+Goal: See correlation visually.
+
+Plot:
+
+Scatter Plot → sns.scatterplot(x='col1', y='col2', data=df)
+
+Use for features like height vs weight.
+
+4. Relationship between categorical and numeric variables
+Goal: Compare distributions across categories.
+
+Plot:
+
+Boxplot → sns.boxplot(x='category', y='numeric', data=df)
+
+Violin Plot → sns.violinplot(...) (shows distribution + density)
+
+Barplot → sns.barplot(...) (mean values)
+
+5. Relationship between two categorical variables
+Goal: See frequency combinations.
+
+Plot:
+
+Countplot → sns.countplot(x='cat1', hue='cat2', data=df)
+
+Use for things like gender vs smoker.
+
+6. Outlier Detection
+Goal: Identify unusual values.
+
+Plot:
+
+Boxplot → best for spotting outliers.
+
+Swarmplot → shows individual points + boxplot.
+
+7. Time Series
+Goal: See trends over time.
+
+Plot:
+
+Line Plot → sns.lineplot(x='date', y='value', data=df)
+
